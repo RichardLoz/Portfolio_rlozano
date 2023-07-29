@@ -6,14 +6,14 @@ import { useEffect } from 'react';
 const Header = () => {
     useEffect(() => {
         const navLinks = document.querySelectorAll("nav ul li")
-        const indicador = document.querySelector("nav .indicador")
+        const indicator = document.querySelector("nav .indicator")
 
         function update(){
             let width = navLinks[0].offsetWidth,
                 left = navLinks[0].offsetLeft
 
-            indicador.style.width = `${width + 28}px`
-            indicador.style.left = `${left}px`
+            indicator.style.width = `${width + 28}px`
+            indicator.style.left = `${left}px`
         }
 
         update();
@@ -21,16 +21,16 @@ const Header = () => {
         navLinks.forEach(link => {
             link.addEventListener("click", () => {
                 navLinks.forEach(link => {
-                    link.classList.remove("activo")
+                    link.classList.remove("active")
                 });
-                
+
                 let width = link.offsetWidth,
                     left = link.offsetLeft
 
-                indicador.style.left = left + "px"
-                indicador.style.width = `${width + 28}px`
+                indicator.style.left = left + "px"
+                indicator.style.width = `${width + 28}px`
 
-                link.classList.add("activo")
+                link.classList.add("active")
             })
         })
     }, [])
@@ -45,8 +45,8 @@ const Header = () => {
 
         <nav>
             <ul>
-                <div className="indicador"></div>
-                <li className='activo'>
+                <div className="indicator"></div>
+                <li className='active'>
                     <a href="#inicio">INICIO</a>
                 </li>
                 <li>
@@ -61,7 +61,7 @@ const Header = () => {
             </ul>
         </nav>
 
-        <div className="perfil">
+        <div className="profile">
             <img src={perfil} alt="" />
         </div>
     </header>
